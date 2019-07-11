@@ -1,0 +1,19 @@
+- name: "Download mysql community repo"
+  get_url: 
+    url: http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
+    dest: /tmp
+
+- name: "Install mysql community repo"
+  command: /usr/bin/rpm -ivh /tmp/mysql-community-release-el7-7.noarch.rpm
+
+- name: "install mysql server"
+  yum:
+    name: mysql-server
+    state: present
+
+- name: "install mysql-python"
+  yum:
+    name: MySQL-python
+    state: present
+  notify: activate
+ 

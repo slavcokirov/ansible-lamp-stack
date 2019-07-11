@@ -1,0 +1,22 @@
+- name: "Install yum utils"
+  yum:
+    name: yum-utils
+    state: latest
+
+- name: "install epel repo"
+  yum:
+    name: epel-release
+    state: latest
+
+- name: "install remi repo"
+  yum: 
+    name: remi-release
+    state: latest
+  
+
+- name: "instal php"
+  yum: 
+    enablerepo: "remi,remi-php72"
+    name: php72
+    state: latest
+  notify: create link    

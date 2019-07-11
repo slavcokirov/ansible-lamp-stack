@@ -1,0 +1,10 @@
+- name: "install the latest version of Apache"
+  yum:
+    name: httpd
+    state: latest
+
+- name: "Enable Apache on system reboot"
+  service:
+    name: httpd 
+    enabled: yes
+  notify: restart apache

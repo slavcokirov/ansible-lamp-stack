@@ -1,0 +1,41 @@
+---
+- hosts: all
+  remote_user: ansible
+  sudo: yes
+  roles:
+    - common
+
+# web servers
+- hosts: webservers
+  remote_user: ansible
+  sudo: yes
+  roles: 
+    - web
+
+# app servers
+- hosts: appservers
+  remote_user: ansible
+  sudo: yes
+  roles:
+    - app
+
+
+# db servers
+- hosts: dbservers
+  remote_user: ansible
+  sudo: yes
+  roles: 
+    - db
+
+
+
+# Use import_playbook for ease of execution
+
+#- name: "playbook for web servers"
+#  import_playbook: webservers.yml
+
+#- name: "playbook for app servers"
+#  import_playbook: appservers.yml
+
+#- name: "playbook for db servers"
+#  import_playbook: dbservers.yml

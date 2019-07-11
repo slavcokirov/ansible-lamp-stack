@@ -1,0 +1,8 @@
+---
+- hosts: dbservers
+  remote_user: ansible
+  sudo: yes
+  roles:
+    - db  
+  
+
